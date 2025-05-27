@@ -18,7 +18,13 @@
 
   <div>
     <%= form.label :content, style: "display: block" %>
-    <%= form.text_field :content %>
+    <%= form.text_area :content, rows: 5 %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, "Author", style: "display: block" %>
+    <%= form.select :user_id, options_from_collection_for_select(@users, :id, :name, post.user_id),
+        { prompt: "Select an author" }, { required: true } %>
   </div>
 
   <div>
